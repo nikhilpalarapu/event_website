@@ -116,3 +116,24 @@ body {
         opacity: 1;
     }
 }
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .hero-content {
+    padding: 2rem !important;
+  }
+
+  #countdown {
+    flex-direction: column;
+    align-items: start;
+    font-size: 0.85rem;
+  }
+
+  .navbar-brand img {
+    height: 30px !important;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 0.5rem 1rem;
+  }
+}
