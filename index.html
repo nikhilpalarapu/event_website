@@ -41,7 +41,7 @@
   <p><strong>Date:</strong> April 15, 2025</p>
   <p><strong>Time:</strong> 9:00 AM – 3:00 PM</p>
   <p><strong>Location:</strong> Student Plaza, Near University Center (UofM)</p>
-  <a class="btn btn-primary mt-2" href="https://maps.google.com/?q=35.118588409605906,-89.93714032521623" target="_blank">
+  <a class="btn btn-primary mt-2" href="https://www.google.com/maps/place/Student+Plaza/@35.1184748,-89.9371489,17z/data=!3m1!4b1!4m6!3m5!1s0x887f86b0fe355931:0xca3861b38d82815c!8m2!3d35.1184748!4d-89.9371489!16s%2Fg%2F1w8wbsn_?entry=ttu&g_ep=EgoyMDI0MDgyMy4wIKXMDSoASAFQAw%3D%3D" target="_blank">
     View Location on Google Maps
   </a>
   <p class="mt-4">
@@ -110,10 +110,10 @@
 <section class="fade-in container py-5" id="sponsors">
 <h2 class="text-primary mb-4">Sponsors</h2>
 <div class="row g-4">
-<div class="col-md-4"><div class="card shadow card-hover h-100"><img class="img-fluid rounded gallery-img" src="sponsor 1.png"/></div></div>
-<div class="col-md-4"><div class="card shadow card-hover h-100"><img class="img-fluid rounded gallery-img" src="sponsor 2.png"/></div></div>
-<div class="col-md-4"><div class="card shadow card-hover h-100"><img class="img-fluid rounded gallery-img" src="sponsor 3.png"/></div></div>
-<div class="col-md-4"><div class="card shadow card-hover h-100"><img class="img-fluid rounded gallery-img" src="sponsor 4.png"/></div></div>
+<div class="col-md-4"><div class="card shadow card-hover h-100"><img class="img-fluid rounded sponsor-img" src="sponsor 1.png"/></div></div>
+<div class="col-md-4"><div class="card shadow card-hover h-100"><img class="img-fluid rounded sponsor-img" src="sponsor 2.png"/></div></div>
+<div class="col-md-4"><div class="card shadow card-hover h-100"><img class="img-fluid rounded sponsor-img" src="sponsor 3.png"/></div></div>
+<div class="col-md-4"><div class="card shadow card-hover h-100"><img class="img-fluid rounded sponsor-img" src="sponsor 4.png"/></div></div>
 </div>
 </section>
 <!-- <section class="fade-in container py-5" id="gallery">
@@ -207,35 +207,33 @@
       const seconds = Math.floor((distance / 1000) % 60);
 
       const countdownHTML = `
-      <span class='countdown-item'><span class='count-box'>${days}</span> Days</span>
-      <span class='countdown-item'><span class='count-box'>${hours}</span> Hours</span>
-      <span class='countdown-item'><span class='count-box'>${minutes}</span> Minutes</span>
-      <span class='countdown-item'><span class='count-box'>${seconds}</span> Seconds</span>
+        <span class='countdown-item'><span class='count-box'>${days}</span> Days</span>
+        <span class='countdown-item'><span class='count-box'>${hours}</span> Hours</span>
+        <span class='countdown-item'><span class='count-box'>${minutes}</span> Minutes</span>
+        <span class='countdown-item'><span class='count-box'>${seconds}</span> Seconds</span>
       `;
-
-
       const el = document.getElementById("countdown");
       if (el) el.innerHTML = countdownHTML;
     }
 
     setInterval(updateCountdown, 1000);
     updateCountdown();
-  });
 
-  // Lightbox functionality
-  document.addEventListener("DOMContentLoaded", function () {
-    const galleryImages = document.querySelectorAll(".gallery-img");
+    // Lightbox logic
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightbox-img");
 
-    galleryImages.forEach(img => {
+    // Select all clickable images
+    const clickableImages = document.querySelectorAll(".gallery-img, .sponsor-img");
+
+    clickableImages.forEach(img => {
       img.addEventListener("click", () => {
         lightboxImg.src = img.src;
         lightbox.classList.add("active");
       });
     });
 
-    // Close lightbox when clicking outside the image
+    // Close lightbox on click outside image
     lightbox.addEventListener("click", (e) => {
       if (e.target === lightbox || e.target === lightboxImg) {
         lightbox.classList.remove("active");
