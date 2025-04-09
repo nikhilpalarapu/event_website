@@ -92,6 +92,22 @@ body {
     box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
 }
 
+.sponsor-img {
+  width: 100%;
+  height: 250px;
+  object-fit: contain;    /* ensures the entire image fits */
+  background-color: white; /* optional, adds padding effect if image is smaller */ 
+  border-radius: 15px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+.sponsor-img:hover {
+  transform: scale(1.12);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
+}
+
 .lightbox {
     display: none;
     position: fixed;
